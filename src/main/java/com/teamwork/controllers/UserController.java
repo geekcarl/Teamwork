@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-    @PostMapping(value = "/login")
+    @RequestMapping(value = "/login")
     public String login(@RequestParam("acount") String acount, @RequestParam("pwd") String pwd) {
         //todo
         return "SUCCESS";
