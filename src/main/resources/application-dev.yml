@@ -1,0 +1,9 @@
+mongodb:
+  primary:
+    host: localhost
+    port: 27017
+    database: teamwork
+#  secondary:
+#    host: 192.168.9.60
+#    port: 20000
+#    database: test1
