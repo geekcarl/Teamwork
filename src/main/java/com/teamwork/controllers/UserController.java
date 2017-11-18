@@ -14,7 +14,7 @@ public class UserController {
 
     @RequestMapping(value = "/login")
     public String login(@RequestParam("acount") String acount, @RequestParam("pwd") String pwd) {
-        //todo
+
         return "SUCCESS";
     }
 }
