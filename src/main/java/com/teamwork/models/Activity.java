@@ -1,7 +1,9 @@
 package com.teamwork.models;
 
+import java.io.File;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Map;
 
 public class Activity implements Serializable {
     private static final long serialVersionUID = -3258839839160856615L;
@@ -68,7 +70,7 @@ public class Activity implements Serializable {
     /**
      * 活动照片
      */
-    private String picture;
+    private Map<String,File> picture;
 
     public Long getActivityId() {
         return activityId;
@@ -190,11 +192,11 @@ public class Activity implements Serializable {
         this.hasExample = hasExample;
     }
 
-    public String getPicture() {
+    public Map<String, File> getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(Map<String, File> picture) {
         this.picture = picture;
     }
 }

@@ -1,6 +1,10 @@
 package com.teamwork.models;
 
 
+import com.sun.xml.internal.ws.developer.Serialization;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.query.Criteria;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -15,6 +19,17 @@ public class User implements Serializable {
     private String gender;
     private String avatar;
     private String weChatNo;
+
+    /**
+     * 用户积分
+     *
+     * @return
+     */
+    private int integration;
+    /**
+     * 用户权限
+     */
+    private int right;
 
     public String getEmployeeId() {
         return employeeId;
@@ -96,6 +111,25 @@ public class User implements Serializable {
         this.weChatNo = weChatNo;
     }
 
+    public int getIntegration() {
+        return integration;
+    }
+
+    public void setIntegration(int integration) {
+        this.integration = integration;
+    }
+
+    public int getRight() {
+        return right;
+    }
+
+    public void setRight(int right) {
+        this.right = right;
+    }
+
+    public static Criteria is(String name, String value) {
+        return Criteria.where(name).is(value);
+    }
     @Override
     public String toString() {
         return "User{" +
@@ -109,16 +143,18 @@ public class User implements Serializable {
                 ", gender='" + gender + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", weChatNo='" + weChatNo + '\'' +
+                ", integration=" + integration +
+                ", right=" + right +
                 '}';
     }
 
-    public static User getDemo(){
+    public static User getDemo() {
         User user = new User();
         user.setUserId(1L);
         user.setUserName("zouwei");
         user.setWeChatNo("123");
         user.setPassWord("123");
-        return  user;
+        return user;
     }
 }
 

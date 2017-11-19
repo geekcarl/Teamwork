@@ -1,0 +1,16 @@
+{
+  "code": 200,
+  "errorMsg": "ok",
+  "payload": [
+    {
+      "userId": 123,
+      "userName": "zouwei",
+      "...": ".."
+    },
+    {
+      "userId": 123,
+      "userName": "zouwei",
+      "...": ".."
+    }
+  ]
+}
