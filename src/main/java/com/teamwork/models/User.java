@@ -5,23 +5,39 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     private static final long serialVersionUID = -3258839839160856613L;
-    private Long id;
+    private Long userId;
+    private String employeeId;
     private String userName;
+    private String bankBranch;
     private String passWord;
     private String tel;
     private String eMail;
     private String gender;
     private String avatar;
+    private String weChatNo;
 
-    public User() {
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public Long getId() {
-        return id;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getBankBranch() {
+        return bankBranch;
+    }
+
+    public void setBankBranch(String bankBranch) {
+        this.bankBranch = bankBranch;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -70,6 +86,39 @@ public class User implements Serializable {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getWeChatNo() {
+        return weChatNo;
+    }
+
+    public void setWeChatNo(String weChatNo) {
+        this.weChatNo = weChatNo;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", employeeId='" + employeeId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", bankBranch='" + bankBranch + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", tel='" + tel + '\'' +
+                ", eMail='" + eMail + '\'' +
+                ", gender='" + gender + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", weChatNo='" + weChatNo + '\'' +
+                '}';
+    }
+
+    public static User getDemo(){
+        User user = new User();
+        user.setUserId(1L);
+        user.setUserName("zouwei");
+        user.setWeChatNo("123");
+        user.setPassWord("123");
+        return  user;
     }
 }
 
