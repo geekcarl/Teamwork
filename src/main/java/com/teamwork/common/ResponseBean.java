@@ -16,6 +16,9 @@ public class ResponseBean {
     public static ResponseBean EInstance(Object payload) {
         return new ResponseBean(TWConstants.ERROR_CODE, TWConstants.ERROR_CODE_MSG,null);
     }
+    public static ResponseBean loginErrorInstance(Object payload) {
+        return new ResponseBean(TWConstants.LOGIN_ERROR, TWConstants.LOGIN_ERROR_MSG,null);
+    }
 
     public int getCode() {
         return code;

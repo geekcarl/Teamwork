@@ -35,13 +35,13 @@ public class UserController {
     @RequestMapping(value = "/login")
     @ResponseBody
     public ResponseBean login(@RequestParam("weChatNo") String weChatNo, @RequestParam("pwd") String pwd) {
-        User user = new User();
+        User user;
         try {
              user = userService.loginCheck(weChatNo, pwd);
         } catch (Exception e) {
             return ResponseBean.instance(TWConstants.ERROR_CODE, e.getMessage(), null);
         }
-        return ResponseBean.OkInstance(user);
+        return user == null ? ResponseBean.loginErrorInstance(null) : ResponseBean.OkInstance(user);
     }
 
     /**
@@ -135,7 +135,7 @@ public class UserController {
         // 获取文件的后缀名
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         // 文件上传后的路径
-        String filePath = "C:\\Users\\Dangerous\\Desktop\\uploadpictures\\";
+        String filePath = "G:\\img\\";
         // 解决中文问题，liunx下中文路径，图片显示问题
         // fileName = UUID.randomUUID() + suffixName;
         File dest = new File(filePath + fileName);
