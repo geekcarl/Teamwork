@@ -77,13 +77,13 @@ public class UserServiceImpl implements IService<User> {
     }
 
     /**
-     * 验证用户名和密码
+     * 验证工号和密码
      *
-     * @param weChatNo
+     * @param employId
      * @param passWord
      */
-    public User loginCheck(String weChatNo, String passWord) {
-        Query query = new Query(Criteria.where("weChatNo").is(weChatNo).and("passWord").is(passWord));
+    public User loginCheck(String employId, String passWord) {
+        Query query = new Query(Criteria.where("employeeId").is(employId).and("passWord").is(passWord));
         User user = mongoTemplate.findOne(query, User.class);
         return user;
     }

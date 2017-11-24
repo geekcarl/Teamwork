@@ -85,26 +85,35 @@
 	module.exports = new _vue2.default({
 	    el: '#tab',
 	    data: {
+	        name: null,
+	        pwd: null,
+	        pwd2: null,
 	        employId: null,
-	        pwd: null
+	        tel: null
 	    },
 	    methods: {
 	        submitClick: function submitClick() {
 	            var __this = this;
+	            if (this.pwd !== this.pwd2) {
+	                _weui2.default.topTips('两次密码不一致');
+	                return;
+	            }
 	            _weui2.default.form.validate('#form', function (error) {
 	                console.log(error);
 	                if (!error) {
-	                    var loading = _weui2.default.loading('登录中...');
-	                    _api2.default.getCall(_restUrl2.default.userLoginUrl, {
+	                    var loading = _weui2.default.loading('注册中...');
+	                    _api2.default.getCall(_restUrl2.default.userRegisterUrl, {
+	                        name: __this.name,
+	                        pwd: __this.pwd,
 	                        employId: __this.employId,
-	                        pwd: __this.pwd
+	                        tel: __this.tel
 	                    }, function (data, errMsg) {
 	                        loading.hide();
 	                        if (errMsg) {
 	                            _weui2.default.topTips(errMsg);
 	                        } else if (data) {
 	                            // weui.alert(response.data.errorMsg);
-	                            _weui2.default.toast('登录成功', 3000);
+	                            _weui2.default.toast('注册成功', 3000);
 	                        }
 	                    });
 	                }

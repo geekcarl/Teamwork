@@ -64,6 +64,16 @@
 	        console.log('login...');
 	});
 
+	document.querySelector('#formRegisterBtn').addEventListener('click', function () {
+	        location = '../register.html';
+	        console.log('register...');
+	});
+
+	document.querySelector('#wxLoginBtn').addEventListener('click', function () {
+	        location = '/wx/login';
+	        console.log('wx login...');
+	});
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {

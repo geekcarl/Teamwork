@@ -28,20 +28,51 @@ public class UserController {
     /**
      * 用户登录验证接口
      *
-     * @param weChatNo
+     * @param employId
      * @param pwd
      * @return
      */
     @RequestMapping(value = "/login")
     @ResponseBody
-    public ResponseBean login(@RequestParam("weChatNo") String weChatNo, @RequestParam("pwd") String pwd) {
+    public ResponseBean login(@RequestParam("employId") String employId, @RequestParam("pwd") String pwd) {
         User user;
         try {
-             user = userService.loginCheck(weChatNo, pwd);
+             user = userService.loginCheck(employId, pwd);
         } catch (Exception e) {
             return ResponseBean.instance(TWConstants.ERROR_CODE, e.getMessage(), null);
         }
         return user == null ? ResponseBean.loginErrorInstance(null) : ResponseBean.OkInstance(user);
+    }
+
+    /**
+     * @param name
+     * @param pwd
+     * @param employId
+     * @param tel
+     * @return
+     */
+    @RequestMapping(value = "/register")
+    @ResponseBody
+    public ResponseBean register(@RequestParam("name") String name,
+                                 @RequestParam("pwd") String pwd,
+                                 @RequestParam("employId") String employId,
+                                 @RequestParam("tel") String tel) {
+        User user;
+        try {
+            user = userService.findUserByEmployeeId(employId);
+            if(user != null) {
+                return ResponseBean.instance(TWConstants.USER_EXIST_ERROR, TWConstants.USER_EXIST_ERROR_MSG, null);
+            }
+            user = new User();
+            user.setUserName(name);
+            user.setPassWord(pwd);
+            user.setEmployeeId(employId);
+            user.setTel(tel);
+            return userService.addUser(user) ? ResponseBean.OkInstance(null) : ResponseBean.EInstance(null);
+
+        } catch (Exception e) {
+            return ResponseBean.instance(TWConstants.ERROR_CODE, e.getMessage(), null);
+        }
     }
 
     /**
