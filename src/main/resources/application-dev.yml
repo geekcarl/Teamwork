@@ -10,8 +10,13 @@ spring:
         port: 27017
         database: teamwork
 #        username: root
-
-
+#  thymeleaf:
+#    cache: false
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    encoding: UTF-8
+#    content-type: text/html
+#    mode: HTML
 #  secondary:
 #    host: 192.168.9.60
 #    port: 20000
