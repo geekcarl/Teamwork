@@ -2,7 +2,6 @@ package com.teamwork.common;
 
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by geekCarl on 2017/11/25.
  */
-@Configuration
+//@Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
 
     /**

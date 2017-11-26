@@ -1,13 +1,11 @@
 package com.teamwork.common;
 
-import org.springframework.stereotype.Component;
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component
+//@Component
 public class CorsFilter implements Filter {
 
     final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(CorsFilter.class);
